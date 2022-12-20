@@ -1,0 +1,7 @@
+.env
+
+cloudflared/*
+!cloudflared/.gitkeep
+
+mozilla/*
+!mozilla/.gitkeep

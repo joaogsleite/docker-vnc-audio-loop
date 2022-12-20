@@ -1,0 +1,11 @@
+version: '3.6'
+
+services:
+  vnc-audio-loop:
+    build: .
+    restart: unless-stopped
+    environment:
+      NOVNC_DOMAIN: "${NOVNC_DOMAIN}"
+    volumes:
+      - ./mozilla:/home/ubuntu/.mozilla
+      - ./cloudflared:/home/ubuntu/.cloudflared

@@ -13,6 +13,7 @@ pactl load-module module-null-sink sink_name=SpeakerOutput sink_properties=devic
 pacmd load-module module-virtual-source source_name=VirtualMicrophone
 
 websockify -D --web=/usr/share/novnc/ --cert=/usr/src/app/novnc.pem 6080 localhost:5900
+echo '<iframe style="width:100%;height:100%;border:none;" src="vnc.html"></iframe>' > /usr/share/novnc/index.html
 
 TUNNEL_ID=$(cd /home/ubuntu/.cloudflared/ && ls *.json | sed -e 's/\.json$//')
 cloudflared tunnel route dns $TUNNEL_ID $NOVNC_DOMAIN

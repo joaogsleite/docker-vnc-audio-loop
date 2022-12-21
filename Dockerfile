@@ -16,7 +16,8 @@ RUN ARCH=$(dpkg --print-architecture) \
   && rm cloudflared-linux-$ARCH.deb
 
 # configure novnc
-RUN openssl req -x509 -nodes -newkey rsa:3072 -keyout /usr/src/app/novnc.pem -out /usr/src/app/novnc.pem -days 3650 -subj "/C=PT/ST=Lisbon/L=Lisbon/O=Organization/OU=Department/CN=localhost" \
+RUN mkdir -p /usr/src/app/ \
+  && openssl req -x509 -nodes -newkey rsa:3072 -keyout /usr/src/app/novnc.pem -out /usr/src/app/novnc.pem -days 3650 -subj "/C=PT/ST=Lisbon/L=Lisbon/O=Organization/OU=Department/CN=localhost" \
   && useradd -ms /bin/bash ubuntu \
   && chown ubuntu:ubuntu /usr/src/app/novnc.pem \
   && echo '<iframe style="width:100%;height:100%;border:none;" src="vnc.html"></iframe>' > /usr/share/novnc/index.html

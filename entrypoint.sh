@@ -2,7 +2,7 @@
 
 # create virtual display
 pkill Xvfb
-Xvfb :1 -ac &
+Xvfb :1 -screen 1 1280x720x8 -ac &
 sleep 10
 
 # start vnc server

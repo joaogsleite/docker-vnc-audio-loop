@@ -5,7 +5,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update -y \
   && apt-get install -y build-essential x11vnc xvfb novnc \
   && apt-get -qq install -y pulseaudio pavucontrol \
-  && apt-get install -y wget gnupg fonts-ipafont-gothic fonts-freefont-ttf software-properties-common \
+  && apt-get install -y wget gnupg fonts-ipafont-gothic fonts-freefont-ttf software-properties-common ffmpeg \
   && add-apt-repository ppa:mozillateam/ppa \
   && apt install -y firefox-esr
 
